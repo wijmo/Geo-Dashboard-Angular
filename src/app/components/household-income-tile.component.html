@@ -1,0 +1,15 @@
+﻿<app-gdash-tile
+  icon="M5,6H23V18H5V6M14,9A3,3 0 0,1 17,12A3,3 0 0,1 14,15A3,3 0 0,1 11,12A3,3 0 0,1 14,9M9,8A2,2 0 0,1 7,10V14A2,2 0 0,1 9,16H19A2,2 0 0,1 21,14V10A2,2 0 0,1 19,8H9M1,10H3V20H19V22H1V10Z"
+  header="Household Income">
+  <div class="tile-description">The average income is <b>{{ format(data?.medianIncome, 'n0') }}</b></div>
+    <wj-flex-chart class="chart chart-bar-stacked" chartType="Bar" stacking="Stacked100pc" [palette]="palette"
+      [itemsSource]="incomeData">
+      <wj-flex-chart-axis wjProperty="axisY" position="None"></wj-flex-chart-axis>
+      <wj-flex-chart-axis wjProperty="axisX" position="None"></wj-flex-chart-axis>
+      <wj-flex-chart-data-label content="{y}" position="Left" [offset]="0"></wj-flex-chart-data-label>
+      <wj-flex-chart-series name="Under 75k" binding="value1"></wj-flex-chart-series>
+      <wj-flex-chart-series name="75k to 150k" binding="value2"></wj-flex-chart-series>
+      <wj-flex-chart-series name="150k and above" binding="value3"></wj-flex-chart-series>
+      <wj-flex-chart-legend position="Bottom"></wj-flex-chart-legend>
+    </wj-flex-chart>
+</app-gdash-tile>

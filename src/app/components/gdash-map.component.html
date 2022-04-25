@@ -1,0 +1,15 @@
+﻿<div style="width: 100%; height: 100%;">
+    <wj-flex-map #map header='Select state on the map to see its data' [tooltipContent]="tooltipContent">
+        <wj-geo-map-layer #layer url="assets/data/US.json" (itemsSourceChanged)="zoomTo(layer)"></wj-geo-map-layer>
+        <wj-flex-chart-legend position="Left"></wj-flex-chart-legend>
+    </wj-flex-map>
+
+    <div class="legend">
+        <label for="legend">Map Legend:</label>
+        <select id="legend" class="control legend-select" [(ngModel)]="currentSource" (ngModelChange)="selectSource()">
+            <option *ngFor="let source of sources" [ngValue]="source">
+                {{ source.name }}
+            </option>
+        </select> 
+    </div>
+</div>

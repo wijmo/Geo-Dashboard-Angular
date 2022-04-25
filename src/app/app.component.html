@@ -1,0 +1,54 @@
+﻿<div id="app">
+  <div class="container">
+    <div class="map">
+      <app-gdash-map [palette]="palette" (selected)="mapSelected($event)"></app-gdash-map>
+    </div>
+
+    <div class="data">
+      <div class="row">
+        <div class="data-group">
+          <div class="group">
+            <div class="group-title">{{ selectedName }}</div>
+          </div>
+
+          <wj-tab-panel [selectedIndex]="0">
+            <wj-tab>
+              <a href="#">Demographics</a>
+              <div>
+                <div class="data-col">
+                  <population-tile [data]="selectedData" [palette]="palette"></population-tile>
+                </div>
+                <div class="data-col">
+                  <median-age-tile [data]="selectedData" [palette]="palette"></median-age-tile>
+                </div>
+              </div>
+            </wj-tab>
+
+            <wj-tab>
+              <a href="#">Affluence</a>
+              <div>
+                <div class="data-col">
+                  <net-worth-tile [data]="selectedData" [palette]="palette"></net-worth-tile>
+                </div>
+                <div class="data-col">
+                  <household-income-tile [data]="selectedData" [palette]="palette"></household-income-tile>
+                </div>
+              </div>
+            </wj-tab>
+
+            <wj-tab>
+              <a href="#">Home Value</a>
+              <div>
+                <div class="data-col">
+                  <home-value-tile [data]="selectedData" [dataUS]="dataUS" [palette]="palette" [name]="selectedName">
+                  </home-value-tile>
+                </div>
+              </div>
+            </wj-tab>
+
+          </wj-tab-panel>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
